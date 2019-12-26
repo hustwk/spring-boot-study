@@ -65,6 +65,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                  exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
                 //不使用session
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        
+        httpSecurity.cors();
 
         //验证请求是否正确
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
